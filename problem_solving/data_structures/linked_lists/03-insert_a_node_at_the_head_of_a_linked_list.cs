@@ -26,9 +26,11 @@ class Solution {
 
     class SinglyLinkedList {
         public SinglyLinkedListNode head;
+        public SinglyLinkedListNode tail;
 
         public SinglyLinkedList() {
             this.head = null;
+            this.tail = null;
         }
 
     }
@@ -45,27 +47,9 @@ class Solution {
         }
     }
 
-    static SinglyLinkedListNode insertNodeAtTail(SinglyLinkedListNode head, int data) {
-        if (head == null) {
-            head = new SinglyLinkedListNode(data);
-        }
-        else {
-            var node = head;
-            while (node.next != null){
-                node = node.next;
-            }
-            node.next = new SinglyLinkedListNode(data);
-        }
-        return head;
-    }
-
     static SinglyLinkedListNode insertNodeAtHead(SinglyLinkedListNode llist, int data) {
-        var node = new SinglyLinkedListNode(data);
-        
-        if (llist != null) {
-            node.next = llist;
-        }
-        return node;
+
+
     }
 
     static void Main(string[] args) {
@@ -77,17 +61,17 @@ class Solution {
 
         for (int i = 0; i < llistCount; i++) {
             int llistItem = Convert.ToInt32(Console.ReadLine());
-			SinglyLinkedListNode llist_head = insertNodeAtTail(llist.head, llistItem);
+			SinglyLinkedListNode llist_head = insertNodeAtHead(llist.head, llistItem);
             llist.head = llist_head;
-          	
         }
 
 
 
-        PrintSinglyLinkedList(llist.head, "\n", textWriter);
+        PrintSinglyLinkedList(llist->head, "\n", textWriter);
         textWriter.WriteLine();
 
         textWriter.Flush();
         textWriter.Close();
     }
 }
+
