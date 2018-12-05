@@ -1,4 +1,4 @@
-using System.CodeDom.Compiler;
+﻿using System.CodeDom.Compiler;
 using System.Collections.Generic;
 using System.Collections;
 using System.ComponentModel;
@@ -12,45 +12,58 @@ using System.Text.RegularExpressions;
 using System.Text;
 using System;
 
-class Solution {
+class Solution
+{
 
-    class SinglyLinkedListNode {
+    class SinglyLinkedListNode
+    {
         public int data;
         public SinglyLinkedListNode next;
 
-        public SinglyLinkedListNode(int nodeData) {
+        public SinglyLinkedListNode(int nodeData)
+        {
             this.data = nodeData;
             this.next = null;
         }
     }
 
-    class SinglyLinkedList {
+    class SinglyLinkedList
+    {
         public SinglyLinkedListNode head;
 
-        public SinglyLinkedList() {
+        public SinglyLinkedList()
+        {
             this.head = null;
         }
 
     }
 
-    static void PrintSinglyLinkedList(SinglyLinkedListNode node, string sep, TextWriter textWriter) {
-        while (node != null) {
+    static void PrintSinglyLinkedList(SinglyLinkedListNode node, string sep, TextWriter textWriter)
+    {
+        while (node != null)
+        {
             textWriter.Write(node.data);
 
             node = node.next;
 
-            if (node != null) {
+            if (node != null)
+            {
                 textWriter.Write(sep);
             }
         }
     }
-    static SinglyLinkedListNode insertNodeAtTail(SinglyLinkedListNode head, int data) {
-        if (head == null) {
+
+    static SinglyLinkedListNode insertNodeAtTail(SinglyLinkedListNode head, int data)
+    {
+        if (head == null)
+        {
             head = new SinglyLinkedListNode(data);
         }
-        else {
+        else
+        {
             var node = head;
-            while (node.next != null){
+            while (node.next != null)
+            {
                 node = node.next;
             }
             node.next = new SinglyLinkedListNode(data);
@@ -58,18 +71,31 @@ class Solution {
         return head;
     }
 
-    static void Main(string[] args) {
+    static SinglyLinkedListNode insertNodeAtHead(SinglyLinkedListNode llist, int data)
+    {
+        var node = new SinglyLinkedListNode(data);
+
+        if (llist != null)
+        {
+            node.next = llist;
+        }
+        return node;
+    }
+
+    static void Main(string[] args)
+    {
         TextWriter textWriter = new StreamWriter(@System.Environment.GetEnvironmentVariable("OUTPUT_PATH"), true);
 
         SinglyLinkedList llist = new SinglyLinkedList();
 
         int llistCount = Convert.ToInt32(Console.ReadLine());
 
-        for (int i = 0; i < llistCount; i++) {
+        for (int i = 0; i < llistCount; i++)
+        {
             int llistItem = Convert.ToInt32(Console.ReadLine());
-			SinglyLinkedListNode llist_head = insertNodeAtTail(llist.head, llistItem);
+            SinglyLinkedListNode llist_head = insertNodeAtTail(llist.head, llistItem);
             llist.head = llist_head;
-          	
+
         }
 
 
